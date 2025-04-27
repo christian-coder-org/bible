@@ -24,3 +24,7 @@ The Bible reader and its open source code are freely available to anyone worldwi
 ## Progressive Web App (PWA)
 
 Progressive Web Apps (PWAs) are web applications built and enhanced with modern APIs to deliver enhanced capabilities, reliability, and installability while reaching anyone, anywhere, on any device—all with a single codebase. The Bible reader uses the [Vite framework](https://vite-pwa-org.netlify.app/guide/).
+
+## Github pages
+
+https://www.youtube.com/watch?v=yo2bMGnIKE8
