@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "@ionic/vue-router";
 import { RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Reader from "../views/Reader.vue";
+// @ts-ignore
 import Compare from "../views/Compare.vue";
 
 const routes: Array<RouteRecordRaw> = [

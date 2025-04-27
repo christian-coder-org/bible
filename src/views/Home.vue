@@ -8,7 +8,7 @@
       <!-- BIBLE toolbar -->
       <!-------------------->
       <ion-toolbar color="primary">
-        <ion-title>{{ currentBible.title }}</ion-title>
+        <ion-title><!-- @vue-ignore -->{{ currentBible.title }}</ion-title>
         <ion-buttons slot="end">
           <ion-button @click="openModal"
             ><ion-icon
@@ -46,14 +46,16 @@
 
       <!-- LIST OF CHAPTERS -->
       <ion-list lines="inset" style="margin: 0px 25px 0px 20px">
+        <!-- @vue-ignore -->
         <div
           v-for="(value, key, i) in currentBible[testament]"
           :key="key"
           @click="goToReaderPage(key.toString())"
         >
           <ion-item class="global-cursor-hover">
-            <ion-label
-              ><span style="font-size: small; color: grey">{{ i + 1 }}) </span
+            <ion-label>
+              <span style="font-size: small; color: grey">
+                <!-- @vue-ignore -->{{ i + 1 }}) </span
               >&nbsp;&nbsp; {{ key }}</ion-label
             >
             <ion-icon

@@ -44,7 +44,7 @@
         <ion-item
           v-for="(value, key) in verses"
           :key="key"
-          @click="goToComparePage(book, key)"
+          @click="goToComparePage(key)"
         >
           <span>
             <div class="chapter">{{ book }} {{ chapter }}:{{ key }}</div>
@@ -122,6 +122,7 @@ const queryParams = route.query;
 // SET REFS
 const identifier = ref(queryParams.identifier);
 const book = ref(queryParams.book);
+// @ts-ignore
 const currentBible = BIBLES[identifier.value];
 const testament = ref(queryParams.testament);
 const chaptersCnt = ref(currentBible[testament.value][book.value].chapterCnt);
@@ -168,12 +169,12 @@ const openModal = async () => {
 };
 
 // GO TO COMPARE PAGE
-const goToComparePage = (book: string, verse: number) => {
+const goToComparePage = (verse: number) => {
   router.push({
     path: `/compare`,
     query: {
       identifier: identifier.value,
-      book: book,
+      book: book.value,
       testament: testament.value,
       chapter: chapter.value,
       verse: verse,
