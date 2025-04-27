@@ -39,9 +39,10 @@ import {
   modalController,
 } from "@ionic/vue";
 import { chevronBack } from "ionicons/icons";
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 
 const props = defineProps(["identifier", "book", "chaptersCnt"]);
+// @ts-ignore
 const verses: string[] = ref([]);
 
 // FETCH chapter verses when the chapter number changes
@@ -53,6 +54,7 @@ async function getChapterFirstVerse(chapter: number) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
+    // @ts-ignore
     verses.value.push(data[1].substr(0, 80));
   } catch (error) {
     console.error("Fetching error:", error);
