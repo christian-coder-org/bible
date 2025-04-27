@@ -184,7 +184,10 @@ const goToComparePage = (verse: number) => {
 
 onIonViewWillEnter(() => {
   // Set the starting chapter number and will fire the watcher
-  chapter.value = 1;
+  // First visit of a freshly started app, chapter.value will be 0 "const chapter = ref(0)"
+  // so set it to 1. When the page is called back by the compare page we will want
+  // to use the current user selected chapter.
+  if (chapter.value === 0) chapter.value = 1;
 });
 </script>
 
