@@ -3,11 +3,13 @@
   <!-- PAGE header -->
   <!----------------->
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar style="height: 56px">
       <ion-buttons slot="start">
-        <ion-button color="medium" @click="cancel">Cancel</ion-button>
+        <ion-button @click="cancel" style="font-size: x-large"
+          >Cancel</ion-button
+        >
       </ion-buttons>
-      <ion-title>Select Bible</ion-title>
+      <ion-title style="font-size: x-large">Select Bible</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -28,7 +30,7 @@
             slot="start"
           ></ion-icon>
           <ion-label
-            ><div style="font-size: large">{{ value.title }}</div>
+            ><div style="font-size: x-large">{{ value.title }}</div>
           </ion-label>
         </ion-item>
       </div>

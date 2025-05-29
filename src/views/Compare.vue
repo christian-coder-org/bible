@@ -7,9 +7,9 @@
       <!-------------------->
       <!-- READER toolbar -->
       <!-------------------->
-      <ion-toolbar color="primary">
+      <ion-toolbar style="height: 56px">
         <ion-buttons slot="start">
-          <ion-button @click="router.back()"
+          <ion-button @click="router.back()" style="height: 50px; width: 70px"
             ><ion-icon
               slot="icon-only"
               :icon="chevronBackOutline"
@@ -17,7 +17,7 @@
             ></ion-icon
           ></ion-button>
         </ion-buttons>
-        <ion-title>Verse comparison </ion-title>
+        <ion-title style="font-size: x-large">Verse comparison </ion-title>
       </ion-toolbar>
 
       <!---------------------->

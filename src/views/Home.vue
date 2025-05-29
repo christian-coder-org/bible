@@ -7,8 +7,13 @@
       <!-------------------->
       <!-- BIBLE toolbar -->
       <!-------------------->
-      <ion-toolbar color="primary">
-        <ion-title><!-- @vue-ignore -->{{ currentBible.title }}</ion-title>
+      <ion-toolbar style="height: 56px">
+        <ion-buttons slot="start">
+          <div style="font-size: x-large">vrs: {{ version }}</div>
+        </ion-buttons>
+        <ion-title style="font-size: x-large"
+          ><!-- @vue-ignore -->{{ currentBible.title }}</ion-title
+        >
         <ion-buttons slot="end">
           <ion-button @click="openModal"
             ><ion-icon
@@ -18,14 +23,6 @@
               style="margin-right: 10px"
           /></ion-button>
         </ion-buttons>
-        <!--span @click="setOpen(true)" slot="end" class="global-cursor-hover">
-          <ion-icon
-            slot="icon-only"
-            :icon="bookOutline"
-            size="large"
-            style="margin-right: 10px"
-          />
-        </span-->
       </ion-toolbar>
     </ion-header>
     <!------------->
@@ -36,14 +33,18 @@
       <div>
         <ion-segment :value="testament" @ion-change="segmentChanged($event)">
           <ion-segment-button value="old">
-            <ion-label style="font-size: medium">Old Testament</ion-label>
+            <ion-label style="padding: 10px; font-size: x-large"
+              >Old Testament</ion-label
+            >
           </ion-segment-button>
           <ion-segment-button value="new">
-            <ion-label style="font-size: medium">New Testament</ion-label>
+            <ion-label style="padding: 10px; font-size: x-large"
+              >New Testament</ion-label
+            >
           </ion-segment-button>
         </ion-segment>
       </div>
-
+      <br />
       <!-- LIST OF CHAPTERS -->
       <ion-list lines="inset" style="margin: 0px 25px 0px 20px">
         <!-- @vue-ignore -->
@@ -54,9 +55,12 @@
         >
           <ion-item class="global-cursor-hover">
             <ion-label>
-              <span style="font-size: small; color: grey">
+              <span style="font-size: x-large; color: grey">
                 <!-- @vue-ignore -->{{ i + 1 }}) </span
-              >&nbsp;&nbsp; {{ key }}</ion-label
+              >&nbsp;&nbsp;
+              <span style="font-size: x-large; color: grey">{{
+                key
+              }}</span></ion-label
             >
             <ion-icon
               style="color: grey"
@@ -93,6 +97,9 @@ import { bookOutline, chevronForward } from "ionicons/icons";
 import BIBLES from "../schema/bibles.json";
 import { BiblesType } from "../interfaces";
 import BibleModalPicker from "@/components/BibleModalPicker.vue";
+import packageJson from "../../package.json";
+
+const version = ref(packageJson.version);
 
 // GET THE USER'S DEFAULT BIBLE IDENTIFIER FROM LOCALSTORAGE
 const identifier = ref(

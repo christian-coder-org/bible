@@ -7,9 +7,9 @@
       <!-------------------->
       <!-- READER toolbar -->
       <!-------------------->
-      <ion-toolbar color="primary">
+      <ion-toolbar style="height: 56px">
         <ion-buttons slot="start">
-          <ion-button @click="router.back()"
+          <ion-button @click="router.back()" style="height: 50px; width: 70px"
             ><ion-icon
               slot="icon-only"
               :icon="chevronBackOutline"
@@ -17,7 +17,9 @@
             ></ion-icon
           ></ion-button>
         </ion-buttons>
-        <ion-title>{{ currentBible.title }} </ion-title>
+        <ion-title
+          ><div style="font-size: x-large">{{ book }}</div>
+        </ion-title>
         <ion-buttons slot="end">
           <ion-button @click="openModal"
             ><ion-icon
@@ -28,18 +30,24 @@
           /></ion-button>
         </ion-buttons>
       </ion-toolbar>
-      <!---------------------->
-      <!-- Book sub-toolbar -->
-      <!---------------------->
-      <ion-toolbar color="light">
-        <ion-title> {{ book }}</ion-title>
-      </ion-toolbar>
     </ion-header>
     <!------------->
     <!-- CONTENT -->
     <!------------->
+
     <br />
     <ion-content>
+      <div
+        style="
+          width: 100%;
+          margin: auto;
+          text-align: center;
+          font-size: x-large;
+        "
+      >
+        {{ currentBible.title }}
+      </div>
+      <hr style="border-top: solid grey 1px" />
       <ion-list lines="inset" style="margin: 0px 5px 0px 20px">
         <ion-item
           v-for="(value, key) in verses"
@@ -66,17 +74,19 @@
         <ion-buttons slot="start">
           <ion-button
             v-show="chapter > 1"
-            style="cursor: pointer"
+            style="cursor: pointer; font-size: x-large"
             @click="chapter--"
             ><ion-icon :icon="chevronBackOutline" size="large"></ion-icon
             >{{ chapter - 1 }}</ion-button
           >
         </ion-buttons>
-        <ion-title> Chapter ({{ chapter }} of {{ chaptersCnt }}) </ion-title>
+        <ion-title style="font-size: x-large">
+          Chapter ({{ chapter }} of {{ chaptersCnt }})
+        </ion-title>
         <ion-buttons slot="end">
           <ion-button
             v-show="chapter < chaptersCnt"
-            style="cursor: pointer"
+            style="cursor: pointer; font-size: x-large"
             @click="chapter = chapter + 1"
             >{{ chapter + 1
             }}<ion-icon :icon="chevronForwardOutline" size="large"></ion-icon
@@ -200,5 +210,6 @@ onIonViewWillEnter(() => {
 .text-block {
   margin-left: 10px;
   padding-bottom: 10px;
+  font-size: x-large;
 }
 </style>

@@ -1,10 +1,12 @@
 <template>
   <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button color="medium" @click="cancel">Cancel</ion-button>
+      <ion-buttons slot="start" style="height: 56px">
+        <ion-button @click="cancel" style="font-size: x-large"
+          >Cancel</ion-button
+        >
       </ion-buttons>
-      <ion-title>Select chapter</ion-title>
+      <ion-title style="font-size: x-large">Select chapter</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -16,8 +18,12 @@
           slot="start"
         ></ion-icon>
         <ion-label
-          ><b>{{ book }} - {{ n }}</b>
-          <ion-label>{{ verses[n - 1] }}...</ion-label></ion-label
+          ><span style="font-size: x-large"
+            ><b>{{ book }} - {{ n }}</b></span
+          >
+          <ion-label style="font-size: x-large"
+            >{{ verses[n - 1] }}...</ion-label
+          ></ion-label
         >
       </ion-item>
     </ion-list>
